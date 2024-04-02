@@ -119,7 +119,7 @@ matrix<double> strategy_matrix(3, 3);
     int k = 1;
     int iteration=0;
     std::cout<<"EPS="<<eps_fact[k-1]<<std::endl;
-    std::cout << "Итерация  Выбор игрока А  Выбор игрока В  Выигрыш 1 игрока А  Выигрыш 2 игрока А  Выигрыш 3 игрока А  Проигрыш 1 игрока В  Проигрыш 2 игрока В  Проигрыш 3 игрока В  Верхняя цена игры  Нижняя цена игры\teps\n";
+    std::cout << "Итерация  Выбор игрока А  Выбор игрока В  Выигрыш 1 игрока А  Выигрыш 2 игрока А  Выигрыш 3 игрока А  Проигрыш 1 игрока В  Проигрыш 2 игрока В  Проигрыш 3 игрока В  Верхняя цена игры  Нижняя цена игры\t   eps\n";
     
     while ( eps_fact[k-1] > eps) {
         iteration = generator.next();
@@ -140,7 +140,7 @@ matrix<double> strategy_matrix(3, 3);
         high_cost.push_back(1.0 / k * *std::max_element(winA.begin(), winA.end()));
         low_cost.push_back(1.0 / k * *std::min_element(loseB.begin(), loseB.end()));
         eps_fact.push_back(*std::min_element(high_cost.begin(), high_cost.end()) - *std::max_element(low_cost.begin(), low_cost.end()));
-        std::cout << boost::format("%-16d%-16d%-16d%-19.4f%-19.4f%-25.4f%-19.4f%-19.4f%-19.4f%-23.4f%-19.4f%-30.4f\n")
+        std::cout << boost::format("%-16d%-16d%-16d%-19.4f%-19.4f%-25.4f%-19.4f%-19.4f%-19.4f%-23.4f%-19.4f%-27.4f\n")
                 % k
                 % strA[k]
                 % strB[k]
@@ -169,4 +169,3 @@ matrix<double> strategy_matrix(3, 3);
     std::cout << "\t v = " << high_cost[k - 1] << "\n";
     return 0;
 }
-
